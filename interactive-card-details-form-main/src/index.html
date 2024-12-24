@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+
+    <title>Cartão Interativo</title>
+
+    <link rel="stylesheet" href="./index.css">
+
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class=" cards_area">
+            <div class="cards">
+                <div class="front_card">
+                    <img src="../images/card-logo.svg" alt="front view" class="card_flag">
+                    <div class="card_content">
+                        <img src="../images/bg-card-front.png" alt="card_number">
+                        <h4 id="placeholder_number">0000 0000 0000 0000</h4>
+                        <div class="card_info">
+                            <span id="placeholder_name">Santa Claus</span>
+                            <span id="placeholder_month">00</span>
+                            <span id="placeholder_bar">/</span>
+                            <span id="placeholder_year">00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="back_card">
+                    <img src="../images/bg-card-back.png" alt="back view" class="card_images">
+                    <div class="card_code">
+                        <span id="placeholder_cvc">000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form_area">
+            <form>
+                <div class="first_area">
+                    <label for="cardholder_name">Cardholder Name</label>
+                    <input type="text" id="cardholder_name" placeholder="e.g. Santa Claus" required>
+                </div>
+                <div class="second_area">
+                    <label for="card_number">Card Number</label>
+                    <input type="number" placeholder="e.g. 1234 5678 9123 0000" id="card_number"
+                        oninput="validateInput.call(this)" required>
+                    <span class="error-message" id="card_number_error">Card number must be 16 digits.</span>
+                </div>
+                <div class="third_area">
+                    <div class="date_area">
+                        <label for="exp_month">Exp. Date (MM/YY)</label>
+                        <div id="two_inputs">
+                            <input type="number" id="exp_month" placeholder="MM" oninput="validateInput.call(this)"
+                                required>
+                            <input type="number" id="exp_year" placeholder="YY" oninput="validateInput.call(this)"
+                                required>
+                        </div>
+                    </div>
+                    <div class="cvc_area">
+                        <label for="cvc">CVC</label>
+                        <input type="number" id="cvc" placeholder="e.g. 123" oninput="validateInput.call(this)"
+                            required>
+                        <span class="error-message" id="cvc_error">CVC must be 3 digits.</span>
+                    </div>
+                </div>
+                <button type="submit" id="confirm_button" onclick="Confirmer(event)">Confirm</button>
+            </form>
+            <div class="after_completed">
+                <img src="../images/icon-complete.svg" alt="completed!">
+                <h2>Thank you!</h2>
+                <p>We've added your card details</p>
+                <button id="continue_button" onclick="resetForm()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">João Araldi</a>.
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
